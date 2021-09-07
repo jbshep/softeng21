@@ -6,35 +6,35 @@ blood enemies, former significant others, etc.), please notify your instructor
 via email ASAP.
 
 ## Team 1
-Samuel Bardwell
-Joshua Bohner
-Sieger Canney
-Shunichi Sawamura
+* Samuel Bardwell
+* Joshua Bohner
+* Sieger Canney
+* Shunichi Sawamura
 
 ## Team 2
-Thomas Bertrand
-Kayla Coats
-Nathanael Reusch
-Jamie Wendt
+* Thomas Bertrand
+* Kayla Coats
+* Nathanael Reusch
+* Jamie Wendt
 
 ## Team 3
-Brieann Haberl
-Vanessa Hamlett
-Axel Hernandez
-Nathan Thomsen
+* Brieann Haberl
+* Vanessa Hamlett
+* Axel Hernandez
+* Nathan Thomsen
 
 ## Team 4
-Dahlen Bryce
-Mason Gehling
-Daymion George
-Jason Konz
-Erick Wibben
+* Dahlen Bryce
+* Mason Gehling
+* Daymion George
+* Jason Konz
+* Erick Wibben
 
 ## Team 5
-Braidyn Britt
-Katlynn Burch
-Gregory Haaf
-Brody McLemore
-Deniece Radford
+* Braidyn Britt
+* Katlynn Burch
+* Gregory Haaf
+* Brody McLemore
+* Deniece Radford
 
 
