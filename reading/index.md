@@ -18,6 +18,11 @@ This is a 300-level course.  Given the advanced nature of this course, students 
 * The Mythical Man-Month (Wikipedia summary [article](https://en.wikipedia.org/wiki/The_Mythical_Man-Month), a softcover copy is available for viewing in your instructor's office if you wish to peruse it)
 * [Mythical Man Month, Revisited](http://www.continuousagile.com/unblock/scaling_mythical.html)
 
+## Clean Code and Software Design
+
+* [Jamie Zawinski's "Resignation and Postmortem"](jwz-nomo.pdf)
+* [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882), by Robert C. Martin
+
 ## Coding Conventions
 
 * [PEP 8 - Style Guide for Python](https://www.python.org/dev/peps/pep-0008/)
