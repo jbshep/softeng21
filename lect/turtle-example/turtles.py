@@ -1,8 +1,9 @@
 __all__ = ['Turtle', 'ColossusTurtle']
 
+
 class Turtle(object):
     def __init__(self, name):
-        self.name = name        
+        self.name = name
 
     def speak(self):
         print('Hi, my name is {}.'.format(self.name))
@@ -10,16 +11,22 @@ class Turtle(object):
     def __repr__(self):
         return '<Turtle name={}>'.format(self.name)
 
+
 class ColossusTurtle(Turtle):
     def __init__(self, name, buddy=None):
-        super().__init__(name)    # NOTE: no 'self' here
+        # NOTE: no 'self' here
+        super().__init__(name)
         self.carry(buddy)
 
     def carry(self, buddy):
         self.buddy = buddy
 
     def __repr__(self):
-        return '<ColossusTurtle name={} buddy={}>'.format(self.name, self.buddy)
+        return '<ColossusTurtle name={} buddy={}>'.format(
+            self.name,
+            self.buddy
+        )
+
 
 def test_turtles():
     c1 = ColossusTurtle('Sven')
@@ -29,6 +36,7 @@ def test_turtles():
         print('Yay')
     else:
         print('Boo')
+
 
 if __name__ == '__main__':
     t = Turtle('Timmy')
@@ -40,4 +48,3 @@ if __name__ == '__main__':
     c2 = ColossusTurtle('Maximusser')
     c2.carry(c1)
     print(c2)
-
