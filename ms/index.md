@@ -6,6 +6,7 @@ Table of Contents:
 * [The Issues Backlog](#the-issues-backlog)
 * [Grading of Milestones](#grading-of-milestones)
 * [Milestone 1](#milestone-1)
+* [Milestone 2](#milestone-2)
 
 ## Introduction to the Project
 
@@ -99,7 +100,7 @@ Prior to beginning this milestone, please consider the following reminders.
 
 With these considerations in mind, in this milestone you will complete the following.
 
-1. Give your diary program a subcommand that lists the entries in the diary.  Each entry should be prefixed in some way with the date (day and time) that the entry was made. You get to choose the name and syntax.  It should be clearly documented in your issue description and/or issue comments.  For now, the subcommand should list *all* entries in the diary, and it must list the entries in chronological order from oldest to newest.  Each entry should be shown with enough information so that the user can easily determine how to remove one or more of them using the "remove an entry" subcommand you completed in [Milestone 1](#milestone-1).
+1. Give your diary program a subcommand that lists the entries in the diary.  Each entry should be prefixed in some way with the date (day and time) that the entry was made. You get to choose the name and syntax.  It should be clearly documented in your issue description and/or issue comments.  For now, the subcommand should list *all* entries in the diary, and it must list the entries in *chronological order* from oldest to newest.  Each entry should be shown with enough information so that the user can easily determine how to remove one or more of them using the "remove an entry" subcommand you completed in [Milestone 1](#milestone-1).
 
 1. Give your diary program a subcommand that provides statistics about the current diary including the dates of the first and last entries and how many total entries there are.
 
