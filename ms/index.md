@@ -60,7 +60,7 @@ Milestones will be evaluated on the following criteria.
 
 * How well you curate issues and group them into a milestone.
 * How well you participate in evaluation of Pull Requests, and whether issues are closed using Pull Requests whenever the issue is resolved by merging code into the `main` branch.  Issues should be automatically closed by the closing of a PR provided you properly reference the issue number in the body of the PR (see ["Closing issues using keywords"](https://help.github.com/en/articles/closing-issues-using-keywords))
-* How well you code.  Did you close issues, and to what degree is your code *reliable* and *maintainable*?  This includes the elimination of debugging code, junk files, etc.  Is your code easy to crash, or does it properly check inputs and preconditions?  Does your code comply with PEP8 (hint: use the `pycodestyle` tool to check code for you)?
+* How well you code.  Did you close issues, and to what degree is your code *reliable* and *maintainable*?  This includes the elimination of debugging code, junk files, etc.  Is your code easy to crash, or does it properly check inputs and preconditions?  Does your code comply with PEP8 (hint: use the `pycodestyle` tool or the `flake8` tool to check code for you)?
 
 Starting with milestone 3, you will also be judged on the presence of unit tests and the test coverage of your code base.
 
@@ -89,4 +89,22 @@ including examples.
 
 *Stand-up: 9/28, Due: 10/5*
 
-To be released.
+Prior to beginning this milestone, please consider the following reminders.
+
+* The code in `main` should always be runnable code.  It should never produce errors (type errors, runtime errors, etc.).  This should be true not just at the end of each sprint/milestone, but throughout the entire life of the project.
+
+* *All* code changes must be reviewed as part of a pull request.  If you create issues and fix them via code beyond the issues your instructor assigns, that code must still be reviewed as part of a pull request.  All code gets reviewed by other developers before it gets merged into `main`.  All PRs should automatically close one or more issues (again, see ["Closing issues using keywords"](https://help.github.com/en/articles/closing-issues-using-keywords)).
+
+* Code should be reliable and maintainable. It should be reliable in that it is devoid of bugs.  It should be maintainable in the sense that it is organized in such a way that it anticipates the addition of future features.
+
+With these considerations in mind, in this milestone you will complete the following.
+
+1. Give your diary program a subcommand that lists the entries in the diary.  Each entry should be prefixed in some way with the date (day and time) that the entry was made. You get to choose the name and syntax.  It should be clearly documented in your issue description and/or issue comments.  For now, the subcommand should list *all* entries in the diary, and it must list the entries in chronological order from oldest to newest.  Each entry should be shown with enough information so that the user can easily determine how to remove one or more of them using the "remove an entry" subcommand you completed in [Milestone 1](#milestone-1).
+
+1. Give your diary program a subcommand that provides statistics about the current diary including the dates of the first and last entries and how many total entries there are.
+
+1. Ensure that your diary program still works if your data gets deleted.  In other words, if your data gets deleted or corrupted, the program should be able to detect that and then be able to "start over."  You may want to utilize one pair of programmers to try more aggressively breaking your program.
+
+1. Update your `README.md` to include precise instructions on installing, developing, and running your code. One example of a GitHub repository with a fairly instructive README is [bvcompsci/cemetery-map](https://github.com/bvcompsci/cemetery-map).
+
+1. Identify bugs introduced in [Milestone 1](#milestone-1), create issues for them (labeled 'bug'), and fix them.
