@@ -117,7 +117,7 @@ With these considerations in mind, in this milestone you will complete the follo
 
 There are two major thematic activities in this milestone.  The first is supporting the presence of multiple diaries into which users may log their entries.  The second is the introduction of unit tests that will persist for the remainder of the project.
 
-Your program should have an "active" diary at all times.  Your program should have a default diary, and its name should be `default`.  When users log a diary entry, it should log that entry to the "active" diary.
+Your program should have an "active" diary at all times.  Your program should have a default diary, and its name should be `default`.  When users log a diary entry, it should log that entry to the "active" diary.  When users remove entries or list entries, those subcommands should only refer to the "active" diary.
 
 With this in mind, complete the following.
 
