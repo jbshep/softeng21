@@ -124,7 +124,7 @@ With this in mind, complete the following.
 
 1. Create a `switch` subcommand that switches from one active diary to another active diary given the required argument of the diary's name.  If a diary of that name does not exist, this command should create the new diary.
 
-1. Create a `wipe` subcommand.  `wipe` deletes a diary without creating a new one in its place, unless the user "wipes" the `default` diary.  "Wiping" the `default` diary should recreate it as an empty diary since `default` must always exist.  `wipe` should have an optional argument, which is the name of the diary.  Without the argument, `wipe` deletes the `default` project.  Thus, `diary wipe` is be synonymous with `diary wipe default`.
+1. Create a `wipe` subcommand.  `wipe` deletes a diary without creating a new one in its place, unless the user "wipes" the `default` diary.  "Wiping" the `default` diary should recreate it as an empty diary since `default` must always exist.  `wipe` should have an optional argument, which is the name of the diary.  Without the argument, `wipe` deletes the `default` project.  Thus, `diary wipe` is be synonymous with `diary wipe default`.  If the user wipes the active diary, the active diary should be automatically switched back to the default diary.
 
 1. In [Milestone 2](#milestone-2), you gave your diary program a subcommand that provided statistics about the current diary including the dates of the first and last entries and how many total entries there are.  In Milestone 3, you will enhance this command to show all available diaries and their statistics, along with some indicator (like an asterisk) that shows which diary is the "active" diary.
 
