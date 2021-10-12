@@ -7,6 +7,7 @@ Table of Contents:
 * [Grading of Milestones](#grading-of-milestones)
 * [Milestone 1](#milestone-1)
 * [Milestone 2](#milestone-2)
+* [Milestone 3](#milestone-3)
 
 ## Introduction to the Project
 
@@ -109,3 +110,29 @@ With these considerations in mind, in this milestone you will complete the follo
 1. Update your `README.md` to include precise instructions on installing, developing, and running your code. One example of a GitHub repository with a fairly instructive README is [bvcompsci/cemetery-map](https://github.com/bvcompsci/cemetery-map).
 
 1. Identify bugs introduced in [Milestone 1](#milestone-1), create issues for them (labeled 'bug'), and fix them.
+
+## Milestone 3
+
+*Stand-up: 10/12, Due: 10/28*
+
+There are two major thematic activities in this milestone.  The first is supporting the presence of multiple diaries into which users may log their entries.  The second is the introduction of unit tests that will persist for the remainder of the project.
+
+Your program should have an "active" diary at all times.  Your program should have a default diary, and its name should be `default`.  When users log a diary entry, it should log that entry to the "active" diary.
+
+With this in mind, complete the following.
+
+
+1. Create a `switch` subcommand that switches from one active diary to another active diary given the required argument of the diary's name.  If a diary of that name does not exist, this command should create the new diary.
+
+1. Create a `wipe` subcommand.  `wipe` deletes a diary without creating a new one in its place, unless the user "wipes" the `default` diary.  "Wiping" the `default` diary should recreate it as an empty diary since `default` must always exist.  `wipe` should have an optional argument, which is the name of the diary.  Without the argument, `wipe` deletes the `default` project.  Thus, `diary wipe` is be synonymous with `diary wipe default`.
+
+1. In [Milestone 2](#milestone-2), you gave your diary program a subcommand that provided statistics about the current diary including the dates of the first and last entries and how many total entries there are.  In Milestone 3, you will enhance this command to show all available diaries and their statistics, along with some indicator (like an asterisk) that shows which diary is the "active" diary.
+
+1. Implement *unit tests* using `pytest` as we did in class.  Cumulatively, your tests should run as much of your project code as possible.  You will want to clearly separate your code into two subfolders: one for your project code itself, and one for testing (name your testing folder `tests`).  Your tests must be *isolated*.  This means that the tests should run in their own environment and should not affect or pollute any pre-existing diary data that you have tracked.
+
+1. Create a StarUML class diagram of your classes, and place the `.mdj` file into a folder named `doc`.  Use the class diagram to refactor your code and make it more object-oriented.  This will ultimately make your code easier to test.
+
+1. Keep your `README.md` file up to date (do this always!). One thing to think about is whether moving your project code to a separate folder requires you to modify how you are now running the program (e.g., `python -m diary log I had a good day`).
+
+1. Identify bugs introduced in [Milestone 2](#milestone-2), if any.  Create issues for them (labeled 'bug') and fix them.
+
