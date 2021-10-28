@@ -191,4 +191,4 @@ If you're trying to think of ways to split up this milestone into issues and pai
 
 *Features not in this milestone*: There is no `diaries` subcommand that is fully functional.  There is also no way for a user to "connect" to a remote diary that is created by another user.
 
-You will always need to keep up your README.md file.  It should maintain instructions for installing and running your code (both the client and the server), as well as running your tests.  You will always need to keep up the UML documentation as well.
+You will always need to keep up your README.md file.  It should maintain instructions for installing and running your code (both the client and the server), as well as running your tests.  You will always need to keep up the UML documentation as well. *Your instructor will provide a starting README.md and a starting UML file shortly after the start of the milestone.*
