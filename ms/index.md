@@ -8,6 +8,7 @@ Table of Contents:
 * [Milestone 1](#milestone-1)
 * [Milestone 2](#milestone-2)
 * [Milestone 3](#milestone-3)
+* [Milestone 4 - the Rendezvous](#milestone-4)
 
 ## Introduction to the Project
 
@@ -124,7 +125,7 @@ With this in mind, complete the following.
 
 1. Create a `switch` subcommand that switches from one active diary to another active diary given the required argument of the diary's name.  If a diary of that name does not exist, this command should create the new diary.
 
-1. Create a `wipe` subcommand.  `wipe` deletes a diary without creating a new one in its place, unless the user "wipes" the `default` diary.  "Wiping" the `default` diary should recreate it as an empty diary since `default` must always exist.  `wipe` should have an optional argument, which is the name of the diary.  Without the argument, `wipe` deletes the `default` project.  Thus, `diary wipe` is be synonymous with `diary wipe default`.  If the user wipes the active diary, the active diary should be automatically switched back to the default diary.
+1. Create a `wipe` subcommand.  `wipe` deletes a diary without creating a new one in its place, unless the user "wipes" the `default` diary.  "Wiping" the `default` diary should recreate it as an empty diary since `default` must always exist.  `wipe` should have an optional argument, which is the name of the diary.  Without the argument, `wipe` deletes the `default` diary.  Thus, `diary wipe` is be synonymous with `diary wipe default`.  If the user wipes the active diary, the active diary should be automatically switched back to the default diary.
 
 1. In [Milestone 2](#milestone-2), you gave your diary program a subcommand that provided statistics about the current diary including the dates of the first and last entries and how many total entries there are.  In Milestone 3, you will enhance this command to show all available diaries and their statistics, along with some indicator (like an asterisk) that shows which diary is the "active" diary.
 
@@ -136,3 +137,58 @@ With this in mind, complete the following.
 
 1. Identify bugs introduced in [Milestone 2](#milestone-2), if any.  Create issues for them (labeled 'bug') and fix them.
 
+## Milestone 4                                                                        
+
+*Stand-up: 10/28, Due: 11/23*
+
+This is the *Rendezvous* milestone. Beginning with this milestone, we have our [new merged teams](../teams-rend.md).  The major overarching activity of the Rendezvous milestone is transforming our single-user personal diary software into multi-user (yet still command-line) blog-like software.  This software shall henceforth be named `blurg`.
+
+Rather than merging our code, we will only merge teams.  This will allow each team to start from a common starting point.  Your team's GitHub repository is of the form https://github.com/jbshep/blurg-TEAM where `TEAM` is one of `huarizo`, `liger`, or `mule`.
+
+The new starting code base stores all local information in a filesystem rather than a database.  We will use this approach since it is consistent with the prerequisites of the course (i.e., CMSC 321 is *not* a prerequisite for CMSC 360).  Your instructor will describe in detail during class how this code base stores local diaries (e.g. a configuration file named `config` and `.blurg` directory and its subdirectories).
+
+A diary may now have one or more users that can log diary entries, and a diary will either be local or remote.  A local diary will store all of its entry log data locally in the filesystem.  The client program that you have been developing will continue to work in much they same way it does now.  A remote diary will be accessible through a Web server interface.  That is, your client program will "talk to" the Web server, and the Web server application will be responsible for logging remote diary entries.
+
+The Web server interface has been programmed mostly by your instructor.  It can be found in `blurg/server/__main__.py` and it can be run using the command `./run-server.sh`. We will discuss *at length* the interfaces present in the Web server such that one does not need to understand how to build Web applications in order to interface with it.
+
+A local diary will have one user (a "default" user).  A remote diary will have one or more users.  With respect to remote diaries, one user will create a remote diary.  This process will generate a "secret key" for the diary.  The user diary creator may share this diary key with other users so that they can "join" the diary and log their own entries.
+
+When a users create a diary, they choose their own username for the diary (see requirements below).  Thus, a user could have different usernames for different remote diaries, or they could reuse the same username.
+
+When a user connects to an existing remote diary (that is, the creating user has given them the diary key), they also get to choose a username.
+
+Thus, a diary now tracks not just log entries, but also log entries for a particular user.  For example, jbshep's log entries for the remote diary `softeng` would be different from jbshepspam's log entries for the remote diary `softeng`.
+
+The features/tasks to be implemented in this milestone are as follows.
+
+1. Test-first: One of your first commits for this milestone should be the `pytest` tests you need for implementing all other features in this milestone.  Your instructor has created *some* tests already in order to guide your efforts.
+
+1. The `switch` subcommand should have two forms.
+
+    `blurg switch local_diary` should create a local diary named `local_diary` much the same way as it does today.  There should be something internal that identifies `local_diary` as a locally stored diary (again, on your filesystem).
+
+    `blurg switch --remote=URL --user=USERNAME remote_diary` should create a remote diary `remote_diary` using the Web server application found at `URL`.  An example of this might be:
+
+    ```
+    blurg switch --remote=http://localhost:5000 --user=jbshep team_panda_work_diary
+    ```
+
+    The `blurg switch --remote` version of the `switch` subcommand should store the diary key locally and then print to the screen the diary key.
+
+    A remote diary named `remote_diary` should have information stored at the directory `~/.blurg/remote_diary` containing a single file named `remote`.  That file will be a text file (no `.txt` extension, however), and the file's contents should be lines containing colon-separated key-value pairs.  The keys should be `url`, `key`, and `username`.
+
+1. The `switch`, `wipe`, `log`, `rm`, and `ls` subcommands should still work regardless of whether a diary is local or remote.  You will implement a `RemoteDiary` class that is a subclass of `AbstractDiary` to accomplish this.  Again, we will discuss this at length in class.
+
+1. You can abandon the `diaries` subcommand for this milestone.  It will come back in a future milestone.
+
+If you're trying to think of ways to split up this milestone into issues and pairs for programming, consider these:                                                         
+
+* Implement tests (this needs to happen right away).  Your instructor has given you some good initial tests.  You should run them to see what they do and if any of them fail at first.
+* Implement code in `blurg/cli.py` to support the "remote" version of the `switch` subcommand.
+* Implement code in `blurg/config.py` to fully implement the `switch` subcommand.
+* Implement RemoteDiary (different methods can be parceled out into separate issues if you so choose, e.g., one pair can do start, another can do stop, etc.).
+* The server route /api/rm/&lt;id&gt; should return correct error codes.See `blurg/server/__main__.py` for  comments documenting errors returned from this URL).
+
+*Features not in this milestone*: There is no `diaries` subcommand that is fully functional.  There is also no way for a user to "connect" to a remote diary that is created by another user.
+
+You will always need to keep up your README.md file.  It should maintain instructions for installing and running your code (both the client and the server), as well as running your tests.  You will always need to keep up the UML documentation as well.
