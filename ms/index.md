@@ -186,7 +186,7 @@ If you're trying to think of ways to split up this milestone into issues and pai
 * Implement tests (this needs to happen right away).  Your instructor has given you some good initial tests.  You should run them to see what they do and if any of them fail at first.
 * Implement code in `blurg/cli.py` to support the "remote" version of the `switch` subcommand.
 * Implement code in `blurg/config.py` to fully implement the `switch` subcommand.
-* Implement RemoteDiary (different methods can be parceled out into separate issues if you so choose, e.g., one pair can do start, another can do stop, etc.).
+* Implement RemoteDiary (different methods can be parceled out into separate issues if you so choose, e.g., one pair can do `add_entry`, another can do `remove_entry`, etc.).
 * The server route /api/rm/&lt;id&gt; should return correct error codes.See `blurg/server/__main__.py` for  comments documenting errors returned from this URL).
 
 *Features not in this milestone*: There is no `diaries` subcommand that is fully functional.  There is also no way for a user to "connect" to a remote diary that is created by another user.
