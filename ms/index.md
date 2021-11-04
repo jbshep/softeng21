@@ -177,6 +177,8 @@ The features/tasks to be implemented in this milestone are as follows.
 
     A remote diary named `remote_diary` should have information stored at the directory `~/.blurg/remote_diary` containing a single file named `remote`.  That file will be a text file (no `.txt` extension, however), and the file's contents should be lines containing colon-separated key-value pairs.  The keys should be `url`, `key`, and `username`.
 
+    *NOTE:* In this milestone, users can only create new remote diaries.  They cannot yet share the key with another user so that the other user can "connect" to the remote diary.  In other words, although in this milestone we are building in support for multiple users, we are not yet allowing additional users to connect to remote diaries.  That will happen in the next milestone..
+
 1. The `switch`, `wipe`, `log`, `rm`, and `ls` subcommands should still work regardless of whether a diary is local or remote.  You will implement a `RemoteDiary` class that is a subclass of `AbstractDiary` to accomplish this.  Again, we will discuss this at length in class.
 
 1. You can abandon the `diaries` subcommand for this milestone.  It will come back in a future milestone.
