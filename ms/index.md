@@ -292,8 +292,8 @@ Features to be implemented in this milestone are as follows.
 
 Here is one final thought on supporting multiple users.  It would be beneficial to change the signature of the AbstractDiary class's `add_entry` method to something like:
 
-    ```
-    def add_entry(self, content, date=datetime.now(), username=None) 
-    ```
+```
+def add_entry(self, content, date=datetime.now(), username=None) 
+```
 
 This would enable the calling code to specify the username to use.  If no username is given, the diary could use a reasonable default (like the local username or the username specified in the `remote` file).
