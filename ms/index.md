@@ -9,6 +9,7 @@ Table of Contents:
 * [Milestone 2](#milestone-2)
 * [Milestone 3](#milestone-3)
 * [Milestone 4 - the Rendezvous](#milestone-4)
+* [Milestone 5](#milestone-5)
 
 ## Introduction to the Project
 
@@ -194,3 +195,95 @@ If you're trying to think of ways to split up this milestone into issues and pai
 *Features not in this milestone*: There is no `diaries` subcommand that is fully functional.  There is also no way for a user to "connect" to a remote diary that is created by another user.
 
 You will always need to keep up your README.md file.  It should maintain instructions for installing and running your code (both the client and the server), as well as running your tests.  You will always need to keep up the UML documentation as well. *Your instructor will provide a starting README.md and a starting UML file shortly after the start of the milestone.*
+
+## Milestone 5
+
+*Stand-up: 11/23, Due: 12/07*
+
+blurg diaries show remote and not crash
+blurg connect... all diaries show user including local (getpass.getuser())
+
+1. We will revisit the subcommand `diaries`. It should list all diaries with the currently active diary prefixed with an asterisk.  For each diary, it should also show the number of entries as well as the dates of the first and last entries.  If the diary is remote, the line should be suffixed with the string "(remote)".
+
+If the server is not running and there are remote diaries, the subcommand should not crash.  Rather, the CLI should print "\*cannot connect to server\*" in place of the entries statistics.
+
+Your `diaries` subcommand will produce its output in roughly the same form as what is shown below.
+
+    ```
+    $ blurg diaries
+    default         (3 entries, from 11-18-2021 to 11-20-2021) 
+    localtest       (2 entries, from 11-20-2021 to 11-20-2021) 
+    * remotetest    (2 entries, from 11-19-2021 to 11-20-2021) (remote)
+    remotetest2     (1 entries, from 11-20-2021 to 11-20-2021) (remote)
+    ```
+If the server is not running, the user would see the following.
+
+    ```
+    $ blurg diaries
+    default         (3 entries, from 11-18-2021 to 11-20-2021) 
+    localtest       (2 entries, from 11-20-2021 to 11-20-2021) 
+    * remotetest    (*cannot connect to server*) (remote)
+    remotetest2     (*cannot connect to server*) (remote)
+    ```
+2. Support multiple users by adding a `connect` subcommand that allows users to connect to remote diaries previously created by another user.  The format of this subcommand is:
+
+    ```
+    blurg connect --remote=HOST --user=USERNAME --key=KEY
+    ```
+
+    You will need to add a URL route to the server to verify the diary key and return the actual name of the diary.  For example, a diary key of `8ax01cvz29` may be associated with a remote diary named `softeng` created by a user named `jbshep`.  The route should be `GET /api/verify` and the parameter name should be `key`.
+
+    The actual name of the diary returned will be the name the user will use locally.  In other words, if `jbshep` creates a diary named `softeng`, any user that connects to `softeng` using its diary key will also see the diary's name as `softeng`.
+
+    The result returned by `GET /api/verify' should be a JSON object of the form
+
+    ```
+    {
+        'result': 'ok',
+        'diaryname': DIARY_NAME,
+    }
+    ```
+
+    or, in the case of an error,
+
+    {
+        'result': 'error',
+    }
+
+    Ensuring the URL route can return an error is important for the situation where users send a diary key that is invalid.
+
+    If users already have a diary named `softeng` locally, this command should fail.
+
+3.  `blurg ls` should show the log author next to the date, like this:
+
+    ```
+    [11-20-2021 08:19 by jbshep (#1)]
+    This is jbshep's first entry.
+
+
+    [11-20-2021 08:19 by otheruser (#2)]
+    This is otheruser's first entry. Can you see the different username
+    next to the date?
+
+
+    [11-20-2021 08:27 by jbshep (#3)]
+    This is another jbshep entry.
+    ```
+
+    To support this, the filename of each log entry should somehow include the username of the user making the log entry.
+
+4.  Diary entries should log the identity of the user making entry regardless of whether the entry is made to a local diary or a remote diary. This will allow your software to display local diary entries and remote diary entries the same way.
+
+    The following Python code will allow you to obtain the local user's username for logging to local diaries.
+
+    ```
+    import getpass
+    username = getpass.getuser()
+    ```
+5.  Keep the UML and README up to date.  Keep all help messages up to date.
+
+6.  Your instructor will be paying close attention to commit messages.  Commit messages should be informative.
+
+    Good examples are "connect subcommand" or "multiple users for remote diaries".
+
+    Bad examples are "added stuff" or "fixing bad things" or "Jane Smith fixes".
