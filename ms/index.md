@@ -255,6 +255,12 @@ Features to be implemented in this milestone are as follows.
 
     If users already have a diary named `softeng` locally, this command should fail.
 
+    If this subcommand completes successfully, the program should notify the user of the name of their newly connected diary, like this:
+
+    ```
+    Now connected to diary named "softeng"
+    ```
+
 3.  `blurg ls` should show the log author next to the date, like this:
 
     ```
