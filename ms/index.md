@@ -200,11 +200,13 @@ You will always need to keep up your README.md file.  It should maintain instruc
 
 *Stand-up: 11/23, Due: 12/07*
 
+Features to be implemented in this milestone are as follows.
+
 1. We will revisit the subcommand `diaries`. It should list all diaries with the currently active diary prefixed with an asterisk.  For each diary, it should also show the number of entries as well as the dates of the first and last entries.  If the diary is remote, the line should be suffixed with the string "(remote)".
 
-If the server is not running and there are remote diaries, the subcommand should not crash.  Rather, the CLI should print "\*cannot connect to server\*" in place of the entries statistics.
+    If the server is not running and there are remote diaries, the subcommand should not crash.  Rather, the CLI should print "\*cannot connect to server\*" in place of the entries statistics.
 
-Your `diaries` subcommand will produce its output in roughly the same form as what is shown below.
+    Your `diaries` subcommand will produce its output in roughly the same form as what is shown below.
 
     ```
     $ blurg diaries
@@ -213,7 +215,7 @@ Your `diaries` subcommand will produce its output in roughly the same form as wh
     * remotetest    (2 entries, from 11-19-2021 to 11-20-2021) (remote)
     remotetest2     (1 entries, from 11-20-2021 to 11-20-2021) (remote)
     ```
-If the server is not running, the user would see the following.
+    If the server is not running, the user would see the following.
 
     ```
     $ blurg diaries
@@ -243,9 +245,11 @@ If the server is not running, the user would see the following.
 
     or, in the case of an error,
 
+    ```
     {
-        'result': 'error',
+        'result': 'error'
     }
+    ```
 
     Ensuring the URL route can return an error is important for the situation where users send a diary key that is invalid.
 
@@ -284,3 +288,12 @@ If the server is not running, the user would see the following.
     Good examples are "connect subcommand" or "multiple users for remote diaries".
 
     Bad examples are "added stuff" or "fixing bad things" or "Jane Smith fixes".
+
+
+Here is one final thought on supporting multiple users.  It would be beneficial to change the signature of the AbstractDiary class's `add_entry` method to something like:
+
+    ```
+    def add_entry(self, content, date=datetime.now(), username=None) 
+    ```
+
+This would enable the calling code to specify the username to use.  If no username is given, the diary could use a reasonable default (like the local username or the username specified in the `remote` file).
