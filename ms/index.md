@@ -200,9 +200,6 @@ You will always need to keep up your README.md file.  It should maintain instruc
 
 *Stand-up: 11/23, Due: 12/07*
 
-blurg diaries show remote and not crash
-blurg connect... all diaries show user including local (getpass.getuser())
-
 1. We will revisit the subcommand `diaries`. It should list all diaries with the currently active diary prefixed with an asterisk.  For each diary, it should also show the number of entries as well as the dates of the first and last entries.  If the diary is remote, the line should be suffixed with the string "(remote)".
 
 If the server is not running and there are remote diaries, the subcommand should not crash.  Rather, the CLI should print "\*cannot connect to server\*" in place of the entries statistics.
