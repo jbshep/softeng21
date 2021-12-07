@@ -321,11 +321,13 @@ Requirements for the <strong>milestone</strong> are:
 
 * Feature group 1: backup/restore
 
-    `blurg backup` makes a backup of all local diaries and stores it somewhere within the directory `~/.blurg-backup`.
+    `blurg backup` makes a backup of all diaries within `~/.blurg` and stores them somewhere within the directory `~/.blurg-backup`.  All local diaries should have their log entries preserved, and all remote diaries should have their `remote` files preserved.
 
     `blurg backups` (note the plural subcommand) shows the dates of all available backups that have been made with `blug backup`.
 
     `blurg restore DATE` restores all local diaries backed up on DATE.  You may choose whatever date format you wish, but it should match the output of `blurg backups`.
+
+    After a `blurg restore`, the current diary should be reset to `default`.
 
 * Feature group 2: promote/demote
 
