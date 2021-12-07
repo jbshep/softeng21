@@ -10,6 +10,7 @@ Table of Contents:
 * [Milestone 3](#milestone-3)
 * [Milestone 4 - the Rendezvous](#milestone-4)
 * [Milestone 5](#milestone-5)
+* [Milestone 6](#milestone-6)
 
 ## Introduction to the Project
 
@@ -198,7 +199,7 @@ You will always need to keep up your README.md file.  It should maintain instruc
 
 ## Milestone 5
 
-*Stand-up: 11/23, Due: 12/07*
+*Stand-up: 11/23, Due: ~~12/07~~ extended to 12/08 by 5:00 p.m.*
 
 Features to be implemented in this milestone are as follows.
 
@@ -303,3 +304,43 @@ def add_entry(self, content, date=datetime.now(), username=None)
 ```
 
 This would enable the calling code to specify the username to use.  If no username is given, the diary could use a reasonable default (like the local username or the username specified in the `remote` file).
+
+## Milestone 6
+
+*Stand-up: 12/07, Due: 12/16*
+
+This is the final milestone.  There are two graded "deliverables" that are due.  The first is the milestone itself.  The second is an oral presentation that will be given during the final exam period.
+
+Requirements for the <strong>milestone</strong> are:
+
+1. Ensure that `blurg switch` when used with the ` --remote` option prints the generated diary key to the screen.
+
+1. Create a new subcommand `blurg key` that prints the key of the current diary to the screen. If the current diary is remote, it prints the key.  If the current diary is local, it prints "The current diary is not remote."
+
+1. Choose a "feature group" to implement.  Choices are listed below.
+
+* Feature group 1: backup/restore
+
+    `blurg backup` makes a backup of all local diaries and stores it somewhere within the directory `~/.blurg-backup`.
+
+    `blurg backups` (note the plural subcommand) shows the dates of all available backups that have been made with `blug backup`.
+
+    `blurg restore DATE` restores all local diaries backed up on DATE.  You may choose whatever date format you wish, but it should match the output of `blurg backups`.
+
+* Feature group 2: promote/demote
+
+    `blurg promote LOCALDIARY --remote=HOST --user=USER` should move LOCALDIARY and all its log entries to HOST.
+
+    `blurg demote REMOTEDIARY` should move REMOTEDIARY and all its entries from its server to a local diary of the same name and then wipe it from the server.
+
+
+Requirements for the <strong>oral presentation</strong> are:
+
+* The presentation will be 10 - 20 minutes.  All students in the team must have a significant speaking role.
+* Talk about the most technically challenging feature to implement *prior to* Milestone 6.
+* Talk about which feature group you chose to implement in Milestone 6, why you chose it, and what you had to change in your design to implement it.
+* Demo your software.
+* Invite suggestions from the audience on how to crash your software.
+* Lessons learned: how has the experience in this class changed how you will build software in the future?
+
+As you craft your presentation, you will want to consider the presentation's [grading rubric](presentrubric.md). 
