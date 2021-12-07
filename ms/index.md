@@ -329,7 +329,7 @@ Requirements for the <strong>milestone</strong> are:
 
 * Feature group 2: promote/demote
 
-    `blurg promote LOCALDIARY --remote=HOST --user=USER` should move LOCALDIARY and all its log entries to HOST.
+    `blurg promote LOCALDIARY --remote=HOST --user=USER` should move LOCALDIARY and all its log entries to HOST.  It should also print the new remote diary's key to the screen.
 
     `blurg demote REMOTEDIARY` should move REMOTEDIARY and all its entries from its server to a local diary of the same name and then wipe it from the server.
 
